@@ -1,0 +1,19 @@
+body{
+    font-family: 'Sora', sans-serif;
+}
+
+h2,h3{
+    font-size: 22px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+input::placeholder{
+    width: 160px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #BCBCBC;
+    font-family: 'Sora', sans-serif;
+}

@@ -1,0 +1,11 @@
+.new{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-right: 300px;
+  font-size: 24px;
+  color: #222222;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+}

@@ -1,0 +1,20 @@
+/* Input.module.css */
+.InputContainer {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  height: 100px;  
+  margin-top: 20px;         
+  text-decoration: none;
+}
+
+.InputField {
+  width: 500px;
+  height: 50px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 16px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
