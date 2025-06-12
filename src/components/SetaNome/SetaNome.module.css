@@ -1,0 +1,10 @@
+.setaNome{
+    display: flex;
+    align-items: initial;
+    justify-content: initial;
+    padding-left: 200px;
+    color: #5061FC;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}

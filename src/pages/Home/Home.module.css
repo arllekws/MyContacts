@@ -6,3 +6,53 @@
   gap: 220px;            /* espaço entre os itens */
   margin-top: 20px;
 }
+
+.contactsList{
+  display: flex;
+  flex-direction: column; /* lista vertical */
+  align-items: center;    /* centraliza os itens horizontalmente */
+  gap: 8px;         /* ocupa toda a largura disponível */
+  padding-right: 280px;         /* espaço entre os itens da lista */
+}
+
+.contactInfo{
+  display: flex;
+  padding: 0; /* espaçamento interno */
+  width: 100%; /* ocupa toda a largura disponível */
+  flex-direction: row; /* opcional, já é o padrão */
+  align-items: center; /* alinha verticalmente */
+  gap: 15px;           /* espaço entre os itens */
+}
+
+.contactCategory{
+  background-color: #E0E3FF;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  color: #5061FC;
+}
+
+.contactName{
+  font-size: 20px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  color: #222222;
+}
+
+.contactEmail{
+  padding-left: -30px;
+  font-size: 16px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+  color: #BCBCBC;
+
+}
+
+.contactTelefone{
+  font-size: 16px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+  color: #BCBCBC;
+}
