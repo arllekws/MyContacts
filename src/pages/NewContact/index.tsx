@@ -1,50 +1,53 @@
-import Header from '../../components/Header';
-import InputNewContact from '../../components/NewContact/InputNewContact';
-import BackButton from '../../components/NewContact/BackButton'
-import styles from './NewContact.module.css'
-import Options from '../../components/NewContact/Options';
-import Cadastrar from '../../components/NewContact/Cadastrar';
+import styles from './NewContact.module.css';
 import { useState } from 'react';
+import { useContacts } from '../../context/ContactsContext';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header';
+import BackButton from '../../components/NewContact/BackButton';
 
-const NewContact = () =>{
+const NewContact = () => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setTelefone] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [categoria, setCategoria] = useState('');
+  const { addContact } = useContacts();
+  const navigate = useNavigate();
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    addContact({ nome, email, telefone, categoria });
+
+    navigate('/');
+  }
 
   return (
     <>
-      <div>
-        <Header/>
-      </div>
-      <form>
-        <BackButton/>
-        <h2 className={styles.new}>Novo Contato</h2>
-        <InputNewContact
-        placeholder="Digite o nome"
-        name="name"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-      />
-      <InputNewContact
-        placeholder="Digite o email"
-        name="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        type="email"
-      />
-      <InputNewContact
-        placeholder="Digite o telefone"
-        name="phone"
-        value={phone}
-        onChange={(e) => setTelefone(e.target.value)}
-      />
+    <Header />
+    <BackButton />
+    <h1 className={styles.title}>Novo Contato</h1>
+    
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <input value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" className={styles.inputNewContact} />
+      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className={styles.inputNewContact} />
+      <input value={telefone} onChange={(e) => setTelefone(e.target.value)} placeholder="Telefone" className={styles.inputNewContact} />
 
-      <Options/>
-      <Cadastrar/>
-      
-      </form>
-    </>
-  )
-}
+      <select value={categoria} onChange={(e) => setCategoria(e.target.value)} className={styles.OPTIONNewContact}>
+      <option value="idk" disabled>Selecione uma categoria</option>
+        <option value="WhatsApp">WhatsApp</option>
+        <option value="Instagram">Instagram</option>
+        <option value="Facebook">Facebook</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Twitter">Twitter</option>
+        <option value="Email">Email</option>
+        <option value="Telefone">Telefone</option>
+        <option value="Outras">Outras</option>
+        
+      </select>
+
+      <button type="submit" className={styles.button}>Cadastrar</button>
+    </form></>
+  );
+};
 
 export default NewContact;
