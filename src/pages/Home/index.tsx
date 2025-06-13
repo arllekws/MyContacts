@@ -7,11 +7,13 @@ import { useContacts } from '../../context/ContactsContext';
 import SetaNome from '../../components/SetaNome';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Index() {
   const { contacts, removeContact, updateContact } = useContacts();
   const navigate = useNavigate();
+
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     if (contacts.length === 0) {
@@ -22,7 +24,8 @@ export default function Index() {
   return (
     <div>
       <Header />
-      <Input />
+      <Input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+      
       <div className={styles.buttonContainer}>
         <CounterContacts count={contacts.length} />
         <ButtonNewContact />
@@ -34,7 +37,14 @@ export default function Index() {
       </div>
       <div>
         <div className={styles.contactsList}>
-          {contacts.map((contact, index) => (
+          {[...contacts]
+          .filter(contact =>
+            contact.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            contact.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            contact.telefone.includes(searchTerm)
+          )
+          .sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR', { sensitivity: 'base' }))
+          .map((contact, index) => (
             <div key={index} className={styles.contactCard}>
               <div className={styles.contactLeft}>
                 <div className={styles.contactInfo}>

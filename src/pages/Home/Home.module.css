@@ -18,7 +18,6 @@
   flex-direction: column; /* lista vertical */
   align-items: center;    /* centraliza os itens horizontalmente */
   gap: 8px;         /* ocupa toda a largura disponível */
-         /* espaço entre os itens da lista */
 }
 
 .contactInfo{
@@ -26,7 +25,9 @@
   width: 100%; /* ocupa toda a largura disponível */
   flex-direction: row; /* opcional, já é o padrão */
   align-items: center; /* alinha verticalmente */
-  gap: 15px;         /* espaço entre os itens */
+  gap: 15px; 
+  background: transparent; 
+ /* espaço entre os itens */
 }
 
 .contactCategory{
@@ -87,22 +88,25 @@
   border: none;
   color: red;
   font-size: 22px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .editButton{
   border: none;
   color: #5061FC;
   font-size: 25px;
+  background-color: transparent;
+  cursor: pointer;
 }
 .contactCard {
   gap: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30%;
+  width: 26%;
   max-width: 700px;
   background-color: transparent;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
   @media (max-width: 768px) {
     width: 100%; /* ocupa toda a largura disponível em telas menores */
