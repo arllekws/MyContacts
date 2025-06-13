@@ -6,22 +6,27 @@
   gap: 220px;            /* espaço entre os itens */
   margin-top: 20px;
 }
+.contactsContainerPrincipal{
+  display: flex;
+  align-items: row;
+  justify-content: space-around; /* conteúdo em lados opostos */
+}
+
 
 .contactsList{
   display: flex;
   flex-direction: column; /* lista vertical */
   align-items: center;    /* centraliza os itens horizontalmente */
   gap: 8px;         /* ocupa toda a largura disponível */
-  padding-right: 280px;         /* espaço entre os itens da lista */
+         /* espaço entre os itens da lista */
 }
 
 .contactInfo{
   display: flex;
-  padding: 0; /* espaçamento interno */
   width: 100%; /* ocupa toda a largura disponível */
   flex-direction: row; /* opcional, já é o padrão */
   align-items: center; /* alinha verticalmente */
-  gap: 15px;           /* espaço entre os itens */
+  gap: 15px;         /* espaço entre os itens */
 }
 
 .contactCategory{
@@ -42,7 +47,6 @@
 }
 
 .contactEmail{
-  padding-left: -30px;
   font-size: 16px;
   font-family: 'Sora', sans-serif;
   font-weight: 400;
@@ -55,4 +59,63 @@
   font-family: 'Sora', sans-serif;
   font-weight: 400;
   color: #BCBCBC;
+}
+
+.setaNomeContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto; /* centraliza */
+  width: 80%;
+  max-width: 700px;
+  @media (max-width: 768px) {
+    width: 100%; /* ocupa toda a largura disponível em telas menores */
+    padding-left: 20px; /* espaço à esquerda */
+    padding-right: 500px; /* espaço à direita */
+  }
+}
+@media (max-width: 1024px) {
+  /* Estilos para tablets e telas intermediárias */
+  .setaNomeContainer {
+    padding-left: 40px; /* espaço à esquerda */
+    padding-right: 40px; /* espaço à direita */
+  }
+}
+
+.deleteButton{
+  border: none;
+  color: red;
+  font-size: 22px;
+}
+
+.editButton{
+  border: none;
+  color: #5061FC;
+  font-size: 25px;
+}
+.contactCard {
+  gap: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  max-width: 700px;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  @media (max-width: 768px) {
+    width: 100%; /* ocupa toda a largura disponível em telas menores */
+    padding-left: 30px; /* espaço à esquerda */
+    padding-right: 20px; /* espaço à direita */
+    
+  }
+}
+
+.contactActions {
+  display: flex;
+  gap: 2px;
+  /* ESSENCIAL ↓ */
+  flex-shrink: 0;
+  background: transparent;
 }

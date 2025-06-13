@@ -10,6 +10,8 @@ interface Contact {
 interface ContactsContextType {
   contacts: Contact[];
   addContact: (contact: Contact) => void;
+  removeContact: (contact: Contact) => void; // Optional for now
+  updateContact: (contact: Contact) => void; // Optional for now
 }
 
 const ContactsContext = createContext<ContactsContextType | undefined>(undefined);
@@ -20,9 +22,27 @@ export function ContactsProvider({ children }: { children: ReactNode }) {
   function addContact(contact: Contact) {
     setContacts((prev) => [...prev, contact]);
   }
+  function removeContact(contactToRemove: Contact) {
+    setContacts((prev) =>
+      prev.filter(
+        (c) =>
+          c.nome !== contactToRemove.nome ||
+          c.email !== contactToRemove.email ||
+          c.telefone !== contactToRemove.telefone
+      )
+    );
+  }
+
+  function updateContact(updatedContact: Contact) {
+    setContacts((prev) =>
+      prev.map((c) =>
+        c.email === updatedContact.email ? updatedContact : c
+      )
+    );
+  }
 
   return (
-    <ContactsContext.Provider value={{ contacts, addContact }}>
+    <ContactsContext.Provider value={{ contacts, addContact, removeContact, updateContact }}>
       {children}
     </ContactsContext.Provider>
   );

@@ -13,13 +13,32 @@ const NewContact = () => {
   const { addContact } = useContacts();
   const navigate = useNavigate();
 
+   const isFormValid =
+  nome.trim() !== '' &&
+  email.trim() !== '' &&
+  telefone.length === 15 &&
+  categoria !== '' &&
+  categoria !== 'idk';
+
+
   function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  e.preventDefault();
+  if (!isFormValid) return;
 
-    addContact({ nome, email, telefone, categoria });
+  addContact({ nome, email, telefone, categoria });
+  navigate('/');
+}
 
-    navigate('/');
+
+  function formatarTelefone(valor: string) {
+  const numeros = valor.replace(/\D/g, '');
+
+  if (numeros.length <= 10) {
+    return numeros.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+  } else {
+    return numeros.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
   }
+}
 
   return (
     <>
@@ -30,7 +49,7 @@ const NewContact = () => {
     <form onSubmit={handleSubmit} className={styles.form}>
       <input value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" className={styles.inputNewContact} />
       <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className={styles.inputNewContact} />
-      <input value={telefone} onChange={(e) => setTelefone(e.target.value)} placeholder="Telefone" className={styles.inputNewContact} />
+      <input value={telefone} onChange={(e) => setTelefone(formatarTelefone(e.target.value))} placeholder="Telefone" className={styles.inputNewContact} />
 
       <select value={categoria} onChange={(e) => setCategoria(e.target.value)} className={styles.OPTIONNewContact}>
       <option value="idk" disabled>Selecione uma categoria</option>
@@ -45,7 +64,7 @@ const NewContact = () => {
         
       </select>
 
-      <button type="submit" className={styles.button}>Cadastrar</button>
+      <button type="submit" className={isFormValid ? styles.buttonActive : styles.buttonInactive} disabled={!isFormValid}>Cadastrar</button>
     </form></>
   );
 };

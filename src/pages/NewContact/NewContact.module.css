@@ -36,8 +36,6 @@
 .button {
   font-family: 'Sora', sans-serif;
   font-weight: 600;
-  background-color: #BCBCBC;
-  color: white;
   border: none;
   padding: 10px 20px;
   height: 50px;
@@ -73,4 +71,29 @@
 .OPTIONNewContact:focus {
   outline: none;
   border-color: #5061FC; /* Cor do contorno ao focar */
+}
+.buttonActive{
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  height: 50px;
+  width: 500px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #5061FC;
+  color: white;
+}
+
+.buttonInactive{
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  height: 50px;
+  width: 500px;
+  border-radius: 4px;
+  cursor: not-allowed;
+  font-size: 16px;
 }

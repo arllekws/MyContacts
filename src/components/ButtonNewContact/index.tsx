@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 export default function ButtonNewContact() {
   return (
-    <div>
-        <Link to="/NewContact">
+    <div className={styles.BtnNewCtcContainer}>
+        <Link to="/NewContact" className={styles.BtnNewCtcLink}>
           <button type="submit" className={styles.BtnNewCtc}>Novo Contato</button>
         </Link>
     </div>

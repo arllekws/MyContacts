@@ -1,0 +1,31 @@
+.semContatosContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem;
+  color: #BCBCBC;
+}
+
+span{
+    color: #5061FC;
+    font-weight: 700;
+}
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 48px;
+}
+
+
+.semContatosContainer img {
+  max-width: 100%;
+  height: auto;
+}
+
+.semContatosContainer p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
